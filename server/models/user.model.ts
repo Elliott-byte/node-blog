@@ -4,9 +4,10 @@ export type UserDocument = User & Document;
 
 import Joi from 'joi';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { sha1 } from 'server/utils/crypto.util';
-import paginate from 'server/mongoose/paginate';
-import { getMongooseModule } from 'server/mongoose';
+
+import paginate from '../mongoose/paginate';
+import { sha1 } from '../utils/crypto.util';
+import { getMongooseModule } from '../mongoose';
 
 export const UserJoiSchema = {
   userName: Joi.string()
