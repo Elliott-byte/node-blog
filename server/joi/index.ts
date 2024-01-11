@@ -1,4 +1,4 @@
-import Joi from 'joi';
+import Joi from './joi';
 
 const JoiCharSchema = Joi.string().max(255);
 
