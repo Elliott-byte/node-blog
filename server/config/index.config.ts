@@ -14,3 +14,5 @@ export const MONGODB = {
   username: process.env.MONGODB_USERNAME || '',
   password: process.env.MONGODB_PASSWORD || '',
 };
+
+export const TOKEN_SECRET_KEY = 'TestToken';

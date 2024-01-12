@@ -8,3 +8,7 @@ import crypto from 'crypto-js';
 export const sha1 = (value: string) => {
   return crypto.SHA1(value).toString(crypto.enc.Hex);
 };
+
+export const getDerivedKey = (str: string) => {
+  return crypto.MD5(str).toString(crypto.enc.Hex);
+};
