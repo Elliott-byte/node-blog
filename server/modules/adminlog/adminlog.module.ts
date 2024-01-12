@@ -7,5 +7,6 @@ import { AdminLogService } from './adminlog.service';
   imports: [AdminLogModelModule],
   controllers: [AdminLogController],
   providers: [AdminLogService],
+  exports: [AdminLogService],
 })
 export class AdminLogModule {}
