@@ -5,19 +5,17 @@ import { StandardPaginationSchema } from '@blog/server/joi/schemas/standard-pagi
 import { Roles } from '@blog/server/decorators/roles.decorator';
 @Controller()
 export class AdminLogController {
-  constructor(private readonly adminLogService: AdminLogService) {}
+    constructor(private readonly adminLogService: AdminLogService) {}
 
-  @Get('/api/admin-logs')
-  @Roles('admin')
-  async getAdminLogs(
-    @JoiQuery(StandardPaginationSchema) query: { page: number; limit: number },
-  ) {
-    return await this.adminLogService.getAdminLogs(query);
-  }
+    @Get('/api/admin-logs')
+    @Roles('admin')
+    async getAdminLogs(@JoiQuery(StandardPaginationSchema) query: { page: number; limit: number }) {
+        return await this.adminLogService.getAdminLogs(query);
+    }
 
-  @Get('/api/recent-admin-logs')
-  @Roles('admin')
-  async getRecentAdminLogs() {
-    return await this.adminLogService.getRecentAdminLogs();
-  }
+    @Get('/api/recent-admin-logs')
+    @Roles('admin')
+    async getRecentAdminLogs() {
+        return await this.adminLogService.getRecentAdminLogs();
+    }
 }
