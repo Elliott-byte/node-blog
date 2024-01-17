@@ -1,0 +1,8 @@
+.next/*
+public/*
+static/*
+node_modules/*
+dist-server/*
+coverage/*
+.github/*
+typings/*

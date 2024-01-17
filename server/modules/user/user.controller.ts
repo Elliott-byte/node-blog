@@ -13,6 +13,7 @@ import { auth } from '@blog/server/utils/auth.util';
 import { JoiBody } from '@blog/server/decorators/joi.decorator';
 import Joi from 'joi';
 import { decrypt, getDerivedKey } from '@blog/server/utils/crypto.util';
+import { Request } from '@nestjs/common';
 
 @Controller('/api/user/')
 export class UserController {
