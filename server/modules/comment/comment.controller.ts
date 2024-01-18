@@ -22,7 +22,6 @@ export class CommentController {
 
     @Post('/comments')
     async create(@Req() req: Request, @JoiBody(CommentJoiSchema, { method: 'post' }) comment: Comment) {
-        console.log('newComment', comment);
         const data = await this.commentService.create(comment);
         return omit(data.toJSON(), 'email');
     }
