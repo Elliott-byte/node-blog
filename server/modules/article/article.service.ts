@@ -16,7 +16,7 @@ function truncateString(str, maxLength = 180) {
         const char = str.charAt(i);
         // eslint-disable-next-line no-control-regex
         if (/[^\x00-\xff]/.test(char)) {
-            // 检测是否是中文字符
+            // check if it is Chinese
             charCount += 2;
         } else {
             charCount += 1;
@@ -52,7 +52,7 @@ export class ArticleService {
             if (await this.draftModel.findById(_id)) {
                 return await this.create({ _id, ...data });
             }
-            throw new BadRequestException('找不到该文章！');
+            throw new BadRequestException('Not Found');
         }
         if (article.category && !isEqual(article.category.toString(), data.category)) {
             const reduceArticleCountForOldCateory = this.categoryModel.updateOne(
@@ -116,7 +116,7 @@ export class ArticleService {
             .populate('category');
 
         if (isEmpty(article)) {
-            throw new NotFoundException('没有该文章');
+            throw new NotFoundException('Not Found');
         }
 
         const timestamp = new Date(new Date().setHours(0, 0, 0, 0)).valueOf();
@@ -165,11 +165,10 @@ export class ArticleService {
         return null;
     }
 
-    // 批量删除文章
     public async batchDelete(articleIds: string[]) {
         return this.articleModel.find({ _id: { $in: articleIds } }).then(async (articles) => {
             if (articles.length <= 0) {
-                throw new NotFoundException('没有可删除的文章条目');
+                throw new NotFoundException('article is not exist');
             }
             articles.map(async (article: Article) => {
                 return await this.categoryModel.updateOne({ _id: article.category }, { $inc: { articleCount: -1 } });

@@ -1,22 +1,29 @@
-import Joi from '../joi';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
+import { Document } from 'mongoose';
+import { getMongooseModule } from '../mongoose';
+import Joi from '../joi';
 import { Article } from './article.model';
 import paginate from '../mongoose/paginate';
-import { getMongooseModule } from '../mongoose';
 
 export const CommentJoiSchema = {
     nickName: Joi.string()
         .min(1)
         .max(80)
-        .alter({ post: (schema) => schema.required() }),
+        .alter({
+            post: (schema) => schema.required(),
+        }),
     email: Joi.string()
         .email()
-        .alter({ post: (schema) => schema.required() }),
+        .alter({
+            post: (schema) => schema.required(),
+        }),
     content: Joi.string()
         .min(1)
         .max(500)
-        .alter({ post: (schema) => schema.required() }),
+        .alter({
+            post: (schema) => schema.required(),
+        }),
     parentId: [Joi.equal(null), Joi.objectId()],
     reply: [Joi.equal(null), Joi.objectId()],
     article: Joi.objectId().alter({
@@ -60,7 +67,7 @@ export class Comment {
     @Prop({ default: true })
     pass: boolean;
 
-    // admin is 1，visitor is 0
+    // 0: visitor, 1: admin, 2: author, 3: editor, 4: owner
     @Prop({ max: 4, default: 0 })
     identity: number;
 }

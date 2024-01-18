@@ -1,15 +1,19 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import Joi from '../joi';
 import mongoose from 'mongoose';
+import { Document } from 'mongoose';
+import { getMongooseModule } from '../mongoose';
+import Joi from '../joi';
 import { Category } from './category.model';
 import paginate from '../mongoose/paginate';
-import { getMongooseModule } from '../mongoose';
 
 export const ArticleJoiSchema = {
     title: Joi.string()
+        .trim()
         .min(1)
         .max(80)
-        .alter({ post: (schema) => schema.required() }),
+        .alter({
+            post: (schema) => schema.required(),
+        }),
     content: Joi.string()
         .trim()
         .min(1)
@@ -34,18 +38,20 @@ export type ArticleDocument = Article & Document;
 
 @Schema()
 class DayReadings {
-    @Prop({ requried: true, default: 0 })
+    @Prop({ required: true, default: 0 })
     count: number;
 
-    @Prop({ requried: true })
+    @Prop({ required: true })
     timestamp: number;
 }
+
 @Schema({
     timestamps: true,
     collection: Article.name.toLocaleLowerCase(),
 })
 export class Article {
     _id: string;
+
     createdAt: string | Date;
 
     @Prop({ maxlength: 80, trim: true, required: true })
@@ -57,11 +63,7 @@ export class Article {
     @Prop({ maxlength: 100, trim: true })
     screenshot: string;
 
-    @Prop({
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Category.name,
-        required: true,
-    })
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: Category.name, required: true })
     category: Category;
 
     @Prop({ default: 0 })
@@ -70,10 +72,7 @@ export class Article {
     @Prop({ default: 0 })
     viewsCount: number;
 
-    @Prop({
-        type: [{ type: String, maxlength: 20, lowercase: true, trim: true }],
-        index: true,
-    })
+    @Prop({ type: [{ type: String, maxlength: 20, lowercase: true, trim: true }], index: true })
     tags: string;
 
     @Prop({ default: false, select: false })
