@@ -2,7 +2,7 @@ import { Controller, Delete, Get, Post, Put, Req, UseGuards } from '@nestjs/comm
 import { Request } from 'express';
 import { CommentService } from './comment.service';
 import { RolesGuard } from '@blog/server/guards/roles.guard';
-import { CommentJoiSchema, CommentSchema } from '@blog/server/models/comment.model';
+import { CommentJoiSchema } from '@blog/server/models/comment.model';
 import { JoiBody, JoiParam, JoiQuery } from '@blog/server/decorators/joi.decorator';
 import { omit } from 'lodash';
 import { Comment } from '@blog/server/models/comment.model';
@@ -21,7 +21,8 @@ export class CommentController {
     constructor(private readonly commentService: CommentService) {}
 
     @Post('/comments')
-    async create(@Req() req: Request, @JoiBody(CommentSchema, { method: 'post' }) comment: Comment) {
+    async create(@Req() req: Request, @JoiBody(CommentJoiSchema, { method: 'post' }) comment: Comment) {
+        console.log('newComment', comment);
         const data = await this.commentService.create(comment);
         return omit(data.toJSON(), 'email');
     }

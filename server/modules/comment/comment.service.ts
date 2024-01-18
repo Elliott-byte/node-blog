@@ -18,6 +18,7 @@ export class CommentService {
     ) {}
 
     async create(newComment: Comment, isAdmin = false) {
+        console.log('newComment', newComment);
         if (isAdmin) {
             const res = (await this.userModel.find({})).at(0);
             if (res) {
