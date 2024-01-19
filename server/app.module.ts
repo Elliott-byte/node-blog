@@ -7,6 +7,8 @@ import { ArticleModule } from '@blog/server/modules/article/article.module';
 import { AdminLogModule } from '@blog/server/modules/adminlog/adminlog.module';
 import { DynamicConfigModule } from './modules/dynamic-config/dynamic.module';
 import { CommentModule } from './modules/comment/comment.module';
+import { LoginModule } from './modules/login/login.module';
+import { DraftModule } from './modules/draft/draft.module';
 
 @Module({
     imports: [
@@ -17,6 +19,8 @@ import { CommentModule } from './modules/comment/comment.module';
         AdminLogModule,
         DynamicConfigModule,
         CommentModule,
+        LoginModule,
+        DraftModule,
     ],
     controllers: [],
     providers: [],

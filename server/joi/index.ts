@@ -4,7 +4,7 @@ export * from './schemas/standard-pagination-schema';
 import Joi from './joi';
 
 /**
- * 字符串，范围0-255，非必须
+ * @description Joi schema for string type
  */
 const JoiCharSchema = Joi.string().max(255);
 

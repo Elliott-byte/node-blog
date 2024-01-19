@@ -4,8 +4,8 @@ import { DraftController } from './draft.controller';
 import { DraftService } from './draft.service';
 
 @Module({
-  imports: [DraftModelModule],
-  controllers: [DraftController],
-  providers: [DraftService],
+    imports: [DraftModelModule],
+    controllers: [DraftController],
+    providers: [DraftService],
 })
-export class ArticleModule {}
+export class DraftModule {}

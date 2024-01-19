@@ -11,9 +11,10 @@ import { Request } from 'express';
 export class UserController {
     constructor(private readonly userService: UserService) {}
 
-    @Get('login-info/:account')
+    @Get('login-info')
     @Roles('admin')
     async getUserLoginInfo(@Req() req: Request) {
+        console.log(req);
         const user: any = auth(req);
         if (user) {
             return await this.userService.getUserByAccount(user.account);

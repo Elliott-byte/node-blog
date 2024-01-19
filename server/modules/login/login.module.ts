@@ -6,8 +6,8 @@ import { LoginService } from './login.service';
 import { AdminLogService } from '../adminlog/adminlog.service';
 
 @Module({
-  imports: [UserModelModule, AdminLogModelModule],
-  controllers: [LoginController],
-  providers: [LoginService, AdminLogService],
+    imports: [UserModelModule, AdminLogModelModule],
+    controllers: [LoginController],
+    providers: [LoginService, AdminLogService],
 })
 export class LoginModule {}

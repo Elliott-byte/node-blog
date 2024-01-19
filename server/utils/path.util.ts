@@ -6,7 +6,7 @@ import findRoot from 'find-root';
  * @returns {string} root path of the project
  */
 export const getRootPath = () => {
-  return findRoot(__dirname);
+    return findRoot(__dirname);
 };
 
 export const rootPath = getRootPath();

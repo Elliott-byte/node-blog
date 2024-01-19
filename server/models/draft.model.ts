@@ -5,30 +5,30 @@ import paginate from '../mongoose/paginate';
 import { getMongooseModule } from '../mongoose';
 
 export const DraftJoiSchema = {
-  data: Joi.object(),
-  type: Joi.string(),
+    data: Joi.object(),
+    type: Joi.string(),
 };
 
 export type DraftDocument = Draft & Document;
 
 export enum DRAFT_TYPE {
-  ARTICLE = 'article',
+    ARTICLE = 'article',
 }
 
 @Schema({
-  timestamps: true,
-  collection: Draft.name.toLocaleLowerCase(),
+    timestamps: true,
+    collection: Draft.name.toLocaleLowerCase(),
 })
 export class Draft {
-  _id: string;
+    _id: string;
 
-  createdAt: string | Date;
+    createdAt: string | Date;
 
-  @Prop({ type: Object, default: {} })
-  data: mongoose.Mixed;
+    @Prop({ type: mongoose.SchemaTypes.Mixed })
+    data: mongoose.Mixed;
 
-  @Prop({ type: String, default: '' })
-  type: string;
+    @Prop({ default: DRAFT_TYPE.ARTICLE, enum: [DRAFT_TYPE.ARTICLE] })
+    type: string;
 }
 
 export const DraftSchema = SchemaFactory.createForClass(Draft);

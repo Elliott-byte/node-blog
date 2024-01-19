@@ -1,5 +1,5 @@
 const config = {
-  avatar: '/statc/images/avatar.png',
+    avatar: '/static/images/avatar.png',
 };
 
 export default config;

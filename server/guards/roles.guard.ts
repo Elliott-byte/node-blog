@@ -4,17 +4,18 @@ import { auth } from '../utils/auth.util';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
-  public constructor(private readonly reflector: Reflector) {}
+    public constructor(private readonly reflector: Reflector) {}
 
-  public canActivate(context: ExecutionContext): boolean {
-    const roles = this.reflector.get<string[]>('roles', context.getHandler());
-    if (!roles) {
-      return true;
+    public canActivate(context: ExecutionContext): boolean {
+        const roles = this.reflector.get<string[]>('roles', context.getHandler());
+        if (!roles) {
+            return true;
+        }
+        console.log('current required roles: ', roles);
+        const request = context.switchToHttp().getRequest();
+        const user: any = auth(request);
+        console.log('current user: ', user);
+        const hasRole = () => user.roles.some((role: string) => roles.includes(role));
+        return user && user.roles && hasRole();
     }
-    const request = context.switchToHttp().getRequest();
-    const user: any = auth(request);
-    const hasRole = () =>
-      user.roles.some((role: string) => roles.includes(role));
-    return user && user.roles && hasRole();
-  }
 }

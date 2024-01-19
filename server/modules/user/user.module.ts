@@ -4,8 +4,8 @@ import { UserService } from './user.service';
 import { UserModelModule } from '@blog/server/models/user.model';
 
 @Module({
-  imports: [UserModelModule],
-  controllers: [UserController],
-  providers: [UserService],
+    imports: [UserModelModule],
+    controllers: [UserController],
+    providers: [UserService],
 })
 export class UserModule {}
