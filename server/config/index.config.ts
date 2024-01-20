@@ -16,3 +16,13 @@ export const MONGODB = {
 };
 
 export const TOKEN_SECRET_KEY = 'TestToken';
+
+export const API_COMMENT_POST_RATE_LIMIT = {
+    windowMs: 60 * 60 * 1000,
+    max: 30,
+};
+
+export const API_REQUEST_RATE_LIMIT = {
+    windowMs: 60 * 60 * 1000,
+    max: 5000,
+};

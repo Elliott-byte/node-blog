@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { UserModule } from './modules/user/user.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MONGODB } from './config/index.config';
@@ -10,6 +10,7 @@ import { CommentModule } from './modules/comment/comment.module';
 import { LoginModule } from './modules/login/login.module';
 import { DraftModule } from './modules/draft/draft.module';
 import { FileModule } from './modules/file/file.module';
+import { RateLimitMiddleware } from './middlewares/rate-limit.middleware';
 
 @Module({
     imports: [
@@ -27,4 +28,8 @@ import { FileModule } from './modules/file/file.module';
     controllers: [],
     providers: [],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+    configure(consumer: MiddlewareConsumer) {
+        consumer.apply(RateLimitMiddleware).forRoutes('api');
+    }
+}
