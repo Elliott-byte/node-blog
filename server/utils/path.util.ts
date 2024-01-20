@@ -25,3 +25,7 @@ export const assetsPath = join(rootPath, 'public/static');
  * @returns {string} path to the static assets folder
  */
 export const staticAssetsPath = join(rootPath, 'public/assets');
+
+export const getUploadPathWithYear = () => {
+    return '/static/upload/' + new Date().getFullYear();
+};

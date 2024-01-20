@@ -66,7 +66,7 @@ export class DynamicConfigService {
         if (isDevMode) {
             return '';
         }
-        return '//' + this.config.siteDomain;
+        return this.config.siteDomain;
     }
 
     async handleSiteLogoUrl(data) {

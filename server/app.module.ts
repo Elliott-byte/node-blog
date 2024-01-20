@@ -9,6 +9,7 @@ import { DynamicConfigModule } from './modules/dynamic-config/dynamic.module';
 import { CommentModule } from './modules/comment/comment.module';
 import { LoginModule } from './modules/login/login.module';
 import { DraftModule } from './modules/draft/draft.module';
+import { FileModule } from './modules/file/file.module';
 
 @Module({
     imports: [
@@ -21,6 +22,7 @@ import { DraftModule } from './modules/draft/draft.module';
         CommentModule,
         LoginModule,
         DraftModule,
+        FileModule,
     ],
     controllers: [],
     providers: [],
