@@ -41,7 +41,6 @@ export class ArticleController {
             title: string;
         }
     ) {
-        console.log('articles come in');
         const { items, totalCount } = await this.articleService.getArticleList(query);
         return {
             items,

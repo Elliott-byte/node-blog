@@ -18,6 +18,7 @@ export class CommentService {
     ) {}
 
     async create(newComment: Comment, isAdmin = false) {
+        console.log('isAdmin: ', isAdmin);
         if (isAdmin) {
             const res = (await this.userModel.find({})).at(0);
             if (res) {
@@ -28,6 +29,7 @@ export class CommentService {
                 });
             }
         }
+        console.log('res: ', newComment);
         const article = await this.articleModel.findById(newComment.article);
         if (isEmpty(article)) {
             throw new BadRequestException('[article] Not Found');
@@ -56,7 +58,7 @@ export class CommentService {
             limit,
             sort,
             populate: [
-                { path: 'article', select: 'title' },
+                { path: 'article', select: '_id' },
                 { path: 'reply', select: field },
             ],
         });

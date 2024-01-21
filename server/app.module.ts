@@ -11,6 +11,7 @@ import { LoginModule } from './modules/login/login.module';
 import { DraftModule } from './modules/draft/draft.module';
 import { FileModule } from './modules/file/file.module';
 import { RateLimitMiddleware } from './middlewares/rate-limit.middleware';
+import { SearchModule } from './modules/search/search.module';
 
 @Module({
     imports: [
@@ -24,6 +25,7 @@ import { RateLimitMiddleware } from './middlewares/rate-limit.middleware';
         LoginModule,
         DraftModule,
         FileModule,
+        SearchModule,
     ],
     controllers: [],
     providers: [],

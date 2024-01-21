@@ -15,7 +15,8 @@ export class CategoryService {
     }
 
     async update(id: string, data: Category): Promise<Category | null> {
-        await this.categoryModel.updateOne({ _id: id }, data, {});
+        console.log('id: ', id, 'data: ', data);
+        await this.categoryModel.updateOne({ _id: id }, { ...data });
         return await this.categoryModel.findById(id);
     }
 

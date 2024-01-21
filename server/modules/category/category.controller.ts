@@ -21,6 +21,7 @@ export class CategoryController {
     @Put('/categories/:id')
     @Roles('admin')
     async update(@JoiParam(ObjectIdSchema) params: { id: string }, @JoiBody(CategoryJoiSchema) category: Category) {
+        console.log('id: ', params.id, 'category: ', category);
         return await this.categoryService.update(params.id, category);
     }
 
@@ -37,10 +38,10 @@ export class CategoryController {
     @Get('/categories/:id')
     @Roles('admin')
     async deleteCategory(@JoiParam(ObjectIdSchema) params: { id: string }) {
-        return await this.categoryService.deleteCategory(params.id);
+        return await this.categoryService.getCategory(params.id);
     }
 
-    @Delete('/categories')
+    @Delete('/categories:id')
     @Roles('admin')
     deleteArticles(
         @JoiBody(generateObjectIdSchema('categoryIds'))

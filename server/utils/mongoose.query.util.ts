@@ -2,7 +2,7 @@ import { isEmpty } from 'lodash';
 export class QueryRules {
     data: object;
     rules: object;
-    constructor(data = {}, rules = {}) {
+    constructor(data = {}, rules: object = {}) {
         this.rules = rules;
         this.data = data;
     }

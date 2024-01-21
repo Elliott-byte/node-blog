@@ -33,6 +33,7 @@ export class CommentController {
             {
                 article: CommentJoiSchema.article,
                 parentId: CommentJoiSchema.parentId[1].required(),
+                reply: CommentJoiSchema.reply[1],
                 content: CommentJoiSchema.content,
             },
             { method: 'post' }

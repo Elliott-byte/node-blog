@@ -4,39 +4,36 @@ import paginate from '../mongoose/paginate';
 import { getMongooseModule } from '../mongoose';
 
 export const CategoryJoiSchema = {
-  name: Joi.string()
-    .min(1)
-    .max(80)
-    .alter({
-      post: (schema) => schema.required(),
-    }),
+    name: Joi.string()
+        .min(1)
+        .max(80)
+        .alter({
+            post: (schema) => schema.required(),
+        }),
 };
 
 export type CategoryDocument = Category & Document;
 
 @Schema({
-  timestamps: true,
-  collection: Category.name.toLowerCase(),
+    timestamps: true,
+    collection: Category.name.toLocaleLowerCase(),
 })
 export class Category {
-  @Prop({ maxLength: 80, trim: true, required: true })
-  name: string;
+    @Prop({ maxLength: 80, trim: true, required: true })
+    name: string;
 
-  @Prop({
-    max: 200,
-    default: 0,
-  })
-  order: number;
+    @Prop({
+        max: 200,
+        default: 0,
+    })
+    order: number;
 
-  @Prop({ default: 0 })
-  articleCount: number;
+    @Prop({ default: 0 })
+    articleCount: number;
 }
 
 export const CategorySchema = SchemaFactory.createForClass(Category);
 
 CategorySchema.plugin(paginate);
 
-export const CategoryModelModule = getMongooseModule(
-  Category.name,
-  CategorySchema,
-);
+export const CategoryModelModule = getMongooseModule(Category.name, CategorySchema);
