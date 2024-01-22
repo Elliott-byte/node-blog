@@ -1,0 +1,48 @@
+.emoji {
+    border: 1px solid var(--border-color);
+    border-top: none;
+    padding: 5px;
+    button {
+        border: transparent;
+        margin-left: 5px;
+        background-color: transparent;
+    }
+    img {
+        width: 100%;
+    }
+}
+.userInfo {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    gap: 2px;
+}
+
+.userInfoText {
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    margin-bottom: 0;
+}
+
+.userInfoAvatar {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    margin-right: 5px;
+    overflow: hidden;
+}
+
+.inputWrap {
+    textarea {
+        border: 1px solid var(--border-color);
+        background-color: var(--main-bg-color);
+        color: var(--secondary-text-color);
+        border-radius: 0;
+    }
+}
+
+.commentFormFooter {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}

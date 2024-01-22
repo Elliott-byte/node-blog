@@ -1,0 +1,76 @@
+import React from 'react';
+import Link from '../link';
+import { TagIcon } from '../../icons';
+import { parseTime } from '@blog/client/libs/time';
+import style from './item.style.module.scss';
+import { uniqueId } from 'lodash';
+import { Space, Image } from 'antd';
+import dynamic from 'next/dynamic';
+import { TinyAreaConfig } from '@ant-design/plots';
+const TinyArea = dynamic(() => import('@ant-design/plots').then(({ TinyArea }) => TinyArea), { ssr: false });
+
+const Item = (props: any) => {
+    const item = props.item;
+    const data = [1, 1, ...item.dayReadings.map((item) => item.count), 1, 1];
+    const config: TinyAreaConfig = {
+        autoFit: true,
+        data,
+        smooth: false,
+        line: {
+            size: 2,
+            color: '#c6e48b',
+        },
+        padding: [0, -20, 0, -20],
+        areaStyle: {
+            fill: 'transparent',
+            shadowColor: 'transparent',
+        },
+        yAxis: {
+            max: Math.max(28, Math.max(...data)),
+        },
+        tooltip: {
+            showContent: false,
+            showCrosshairs: false,
+        },
+    };
+    return (
+        <div className={style.item + ' loader'}>
+            <div className={style.itemLeft}>
+                <Link href={`/blog/articles/${item._id}`} passHref={true}>
+                    <h2>{item.title}</h2>
+                </Link>
+                <div className={style.itemMeta}>
+                    <span className="cat">Published: {parseTime(item.createdAt)}</span>
+                    <em>·</em>
+                    {/* <span className="cat">{(item.category && item.category.name) || 'No Category'}</span> <em>·</em> */}
+                    <span>Reads：{item.viewsCount}</span>
+                    <em>·</em>
+                    <span>Comments：{item.commentCount}</span>
+                </div>
+                <p className={style.itemSummary}>{item.summary}</p>
+                {item.tags.length > 0 && (
+                    <div className={style.tags}>
+                        <TagIcon className={style.tagIcon}></TagIcon>
+                        <Space>
+                            {item.tags.map((name: any) => (
+                                <Link href={`/blog/articles?tag=${name}`} passHref={true} key={uniqueId()}>
+                                    {name}
+                                </Link>
+                            ))}
+                        </Space>
+                    </div>
+                )}
+            </div>
+            <div className={style.itemRight}>
+                <div className={style.thumbImgWrap}>
+                    <Image src={item.screenshot} preview={false} alt="" />
+                </div>
+                <div title={item.title + ' Visit Trends'} style={{ height: '28px', width: '100%' }}>
+                    <TinyArea {...config} />
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Item;

@@ -1,0 +1,60 @@
+.article {
+    background-color: var(--main-bg-color);
+    padding: 20px 30px 20px 30px;
+    :global(.ant-breadcrumb) {
+        font-size: 13px;
+        margin-bottom: 8px;
+        span {
+            color: var(--secondary-text-color) !important;
+        }
+        a {
+            color: var(--secondary-text-color) !important;
+        }
+    }
+}
+.articleMeta {
+    margin-bottom: 12px;
+}
+.articleTitle {
+    font-size: 24px;
+    color: var(--title-text-color);
+    font-weight: 600;
+}
+.articleMetaInfo {
+    display: flex;
+    align-items: center;
+    color: var(--secondary-text-color);
+    font-size: 14px;
+    gap: 5px;
+    a {
+        color: var(--secondary-text-color);
+        text-decoration: underline;
+    }
+}
+
+.statement {
+    font-size: 13px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    background-color: var(--blackground-color);
+    border-radius: 3px;
+    border: 1px dashed var(--border-color);
+    color: var(--primary-text-color);
+    a {
+        font-size: 13px;
+    }
+}
+
+.footer {
+    color: var(--secondary-text-color);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.editor {
+    a {
+        color: #4b96e6;
+    }
+}

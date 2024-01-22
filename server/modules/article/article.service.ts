@@ -90,7 +90,7 @@ export class ArticleService {
             page,
             limit,
             sort,
-            populate: [{ path: 'category' }],
+            populate: [{ path: 'category', select: 'name' }],
         });
         return {
             items: (items as any).map((item) => {
