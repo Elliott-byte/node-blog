@@ -34,8 +34,10 @@ Welcome to my version of the Node Blog, inspired by [bs32g1038's Node Blog](http
 ## Installation
 
 First, clone the repository to your local machine:
-git clone https://github.com/Elliott-byte/node-blog.git
-cd node-blog
+
+`git clone https://github.com/Elliott-byte/node-blog.git`
+
+`cd node-blog`
 
 Install the dependencies using `pnpm`:
 `pnpm install`
