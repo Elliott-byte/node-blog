@@ -1,73 +1,51 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Node Blog by Elliott
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Welcome to my version of the Node Blog, inspired by [bs32g1038's Node Blog](https://github.com/bs32g1038/node-blog). This project is not just a mere clone; it's a comprehensive rework with numerous enhancements and refinements to the original.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+<div align="center">
+<img src="./docs/images/home.jpg" width="600" height="auto">
+<br/>
+<img src="./docs/images/admin.jpg" width="600" height="auto">
+</div>
 
-## Description
+## Key Enhancements
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+-   **Significant Rework:** While the core idea stems from the original project, I have rewritten and optimized a substantial portion of the codebase, introducing improvements in both functionality and performance.
+-   **Advanced Features:** Implemented additional features to enrich the user experience and extend the capabilities of the blog.
+-   **Code Optimization:** Focused on optimizing the existing code for better efficiency and readability.
+-   **UI/UX Improvements:** Redesigned the user interface components for a more intuitive and user-friendly experience.
 
-## Installation
+## Core Features
 
-```bash
-$ pnpm install
-```
+-   **Theme Support:** Light and dark themes for a comfortable reading experience.
+-   **RESTful API:** Backend built with Node.js and Express.
+-   **Responsive Design:** Seamless experience across various devices.
+-   **Next.js Integration:** Leveraging Next.js for server-side rendering.
+-   **Modern Frontend:** Utilizing React and Ant Design.
 
-## Running the app
+## Project Structure
 
-```bash
-# development
-$ pnpm run start
+-   `server/`: Enhanced backend logic and APIs.
+-   `client/`: Reworked front-end with improved UX.
+    -   `web/`: User interface for the blog.
+    -   `admin/`: Administrative interface.
+-   `docker-compose.yml`: Docker configuration for deployment.
 
-# watch mode
-$ pnpm run start:dev
+## Development and Deployment
 
-# production mode
-$ pnpm run start:prod
-```
+-   **Custom Development Steps:**
+    -   Instructions for setting up, initializing, and running the project in a development environment.
+-   **Deployment Guidelines:**
+    -   Detailed steps and best practices for deploying the enhanced blog.
 
-## Test
+## Browser Compatibility
 
-```bash
-# unit tests
-$ pnpm run test
+-   Ensured compatibility with modern web browsers including Chrome, Firefox, Safari, Edge, and Opera.
 
-# e2e tests
-$ pnpm run test:e2e
+## Acknowledgments
 
-# test coverage
-$ pnpm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Special thanks to [bs32g1038](https://github.com/bs32g1038) for the original Node Blog project, which served as a foundation for this enhanced version.
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is released under the MIT License.
