@@ -31,12 +31,26 @@ Welcome to my version of the Node Blog, inspired by [bs32g1038's Node Blog](http
     -   `admin/`: Administrative interface.
 -   `docker-compose.yml`: Docker configuration for deployment.
 
-## Development and Deployment
+## Installation
 
--   **Custom Development Steps:**
-    -   Instructions for setting up, initializing, and running the project in a development environment.
--   **Deployment Guidelines:**
-    -   Detailed steps and best practices for deploying the enhanced blog.
+First, clone the repository to your local machine:
+git clone https://github.com/Elliott-byte/node-blog.git
+cd node-blog
+
+Install the dependencies using `pnpm`:
+`pnpm install`
+
+## Running the Application
+
+To start the application in development mode, run the following commands:
+
+### For the Server
+
+`pnpm run dev:server`
+
+### For the Web Client
+
+`pnpm run dev:web`
 
 ## Browser Compatibility
 
