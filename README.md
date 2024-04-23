@@ -18,7 +18,7 @@ Welcome to my version of the Node Blog, inspired by [bs32g1038's Node Blog](http
 ## Core Features
 
 -   **Theme Support:** Light and dark themes for a comfortable reading experience.
--   **RESTful API:** Backend built with Node.js and Express.
+-   **RESTful API:** Backend built with Node.js and NestJs.
 -   **Responsive Design:** Seamless experience across various devices.
 -   **Next.js Integration:** Leveraging Next.js for server-side rendering.
 -   **Modern Frontend:** Utilizing React and Ant Design.
