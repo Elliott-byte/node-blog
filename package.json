@@ -5,10 +5,6 @@
   "homepage": "",
   "github": "",
   "license": "MIT",
-  "author": {
-    "name": "Jason Li",
-    "email": "bs32g1038@163.com"
-  },
   "scripts": {
     "prebuild:server": "rimraf dist",
     "init:dev:data": "nest build --config tsconfig.build.json && cross-env NODE_ENV=development node dist-server/scripts/init_faker_data.js",
